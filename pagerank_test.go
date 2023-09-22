@@ -6,7 +6,7 @@ import (
 )
 
 func TestEmpty(t *testing.T) {
-	graph := NewGraph()
+	graph := NewGraph[uint32]()
 
 	actual := map[uint32]float64{}
 	expected := map[uint32]float64{}
@@ -21,7 +21,7 @@ func TestEmpty(t *testing.T) {
 }
 
 func TestSimple(t *testing.T) {
-	graph := NewGraph()
+	graph := NewGraph[uint32]()
 
 	graph.Link(1, 2, 1.0)
 	graph.Link(1, 3, 1.0)
@@ -47,7 +47,7 @@ func TestSimple(t *testing.T) {
 }
 
 func TestWeighted(t *testing.T) {
-	graph := NewGraph()
+	graph := NewGraph[uint32]()
 
 	graph.Link(1, 2, 1.0)
 	graph.Link(1, 3, 2.0)
@@ -73,7 +73,7 @@ func TestWeighted(t *testing.T) {
 }
 
 func TestDuplicates(t *testing.T) {
-	graph := NewGraph()
+	graph := NewGraph[uint32]()
 
 	graph.Link(1, 2, 1.0)
 	graph.Link(1, 3, 2.0)
@@ -102,7 +102,7 @@ func TestDuplicates(t *testing.T) {
 }
 
 func TestDuplicatesAfterReset(t *testing.T) {
-	graph := NewGraph()
+	graph := NewGraph[uint32]()
 
 	graph.Link(1, 2, 1.0)
 	graph.Link(1, 3, 2.0)
